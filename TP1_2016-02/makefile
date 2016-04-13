@@ -4,7 +4,12 @@ TP1: main.c funcoes.c
 run:
 	clear
 	gcc -o exec main.c funcoes.c
-	./exec input/exemplo_cena.pgm exemplo_objeto.pgm imagem_saida.txt
+	./exec input/exemplo_cena.pgm input/exemplo_objeto.pgm output/imagem_saida.txt
+
+val:
+	clear
+	gcc -g -o exec main.c funcoes.c
+	valgrind ./exec input/exemplo_cena.pgm input/exemplo_objeto.pgm output/imagem_saida.txt
 
 clean:
 	rm exec

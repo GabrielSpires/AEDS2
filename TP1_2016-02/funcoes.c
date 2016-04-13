@@ -1,6 +1,5 @@
 #include "funcoes.h"
 
-
 PGM *LePGM(char* entrada){
 	int i, j;
 	FILE* img_entrada; //Variável do tipo FILE usada para abrir o arquivo
@@ -30,10 +29,46 @@ PGM *LePGM(char* entrada){
 	return pgm_entrada; //Retorna a estrutura com os dados para a main
 }
 
-// int CorrelacaoCruzada(PGM *cena, PGM *obj, Ponto p){
-// 	return /*algo*/
-// }
+//DESCONSIDERAR AS FUNÇÕES ABAIXO
 
-// Ponto JanelaDeslizante(PGM *cena, PGM *obj){
-// 	return /*algo*/
-// }
+int CorrelacaoCruzada(PGM *cena, PGM *obj, Ponto p){
+	int valorCorrelacao = 0,
+		i, j;
+
+		for(i=p.x; i<(p.x + obj->l); i++){
+			for(j=p.y; j<(p.y + obj->c); j++){
+				valorCorrelacao += obj->dados[j - p.y][i - p.x] * cena->dados[p.x +j][p.y+i];
+				printf("h[%d,%d] = %d\n", i, j, valorCorrelacao);
+			}
+		}
+
+	return valorCorrelacao;
+}
+
+Ponto JanelaDeslizante(PGM *cena, PGM *obj){
+	Ponto meuPonto, pontoMatch;
+	int i, j,
+		limiteLinha,
+		limiteColuna,
+		valorCorr = 0, valorCorrTemp;
+
+	limiteLinha = cena->l - obj->l;
+	limiteColuna = cena->c - obj->c;
+	printf("%d %d\n", limiteLinha, limiteColuna);
+
+	for(i=0; i<limiteLinha; i++){
+		for(j=0; j<limiteColuna; j++){
+			meuPonto.x = i;
+			meuPonto.y = j;
+			valorCorrTemp = CorrelacaoCruzada(cena, obj, meuPonto);
+			
+			if(valorCorrTemp > valorCorr){
+				valorCorr = valorCorrTemp;
+				pontoMatch.x = i;
+				pontoMatch.y = j;
+			}
+		}
+	}
+
+	return meuPonto;
+}
