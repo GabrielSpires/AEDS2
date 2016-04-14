@@ -9,7 +9,7 @@ run:
 val:
 	clear
 	gcc -g -o exec main.c funcoes.c
-	valgrind ./exec input/exemplo_cena.pgm input/exemplo_objeto.pgm output/imagem_saida.txt
+	valgrind --leak-check=full ./exec input/exemplo_cena.pgm input/exemplo_objeto.pgm output/imagem_saida.txt
 
 clean:
 	rm exec
