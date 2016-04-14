@@ -35,13 +35,12 @@ int CorrelacaoCruzada(PGM *cena, PGM *obj, Ponto p){
 	int valorCorrelacao = 0,
 		i, j;
 
-		for(i=p.x; i<(p.x + obj->l); i++){
-			for(j=p.y; j<(p.y + obj->c); j++){
-				valorCorrelacao += obj->dados[j - p.y][i - p.x] * cena->dados[p.x +j][p.y+i];
-				printf("h[%d,%d] = %d\n", i, j, valorCorrelacao);
-			}
+	// printf("%d-%d\n", (p.x + obj->l), (p.y + obj->c));
+	for(i=p.x; i<(p.x + obj->l); i++){
+		for(j=p.y; j<(p.y + obj->c); j++){
+			valorCorrelacao += obj->dados[i - p.x][j - p.y] * cena->dados[i][j];
 		}
-
+	}
 	return valorCorrelacao;
 }
 
@@ -50,16 +49,17 @@ Ponto JanelaDeslizante(PGM *cena, PGM *obj){
 	int i, j,
 		limiteLinha,
 		limiteColuna,
-		valorCorr = 0, valorCorrTemp;
+		valorCorr = 0, valorCorrTemp = 0;
 
 	limiteLinha = cena->l - obj->l;
 	limiteColuna = cena->c - obj->c;
-	printf("%d %d\n", limiteLinha, limiteColuna);
+	// printf("%d %d\n", limiteLinha, limiteColuna);
 
-	for(i=0; i<limiteLinha; i++){
-		for(j=0; j<limiteColuna; j++){
+	for(i=0; i <= limiteLinha; i++){
+		for(j=0; j <= limiteColuna; j++){
 			meuPonto.x = i;
 			meuPonto.y = j;
+			// printf("xy %d %d\n", meuPonto.x, meuPonto.y);
 			valorCorrTemp = CorrelacaoCruzada(cena, obj, meuPonto);
 			
 			if(valorCorrTemp > valorCorr){
@@ -70,5 +70,5 @@ Ponto JanelaDeslizante(PGM *cena, PGM *obj){
 		}
 	}
 
-	return meuPonto;
+	return pontoMatch;
 }
