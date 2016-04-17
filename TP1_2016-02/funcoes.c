@@ -32,8 +32,8 @@ PGM *LePGM(char* entrada){
 //DESCONSIDERAR AS FUNÇÕES ABAIXO
 
 int CorrelacaoCruzada(PGM *cena, PGM *obj, Ponto p){
-	int valorCorrelacao = 0,
-		i, j;
+	int i, j,
+	    valorCorrelacao = 0;
 
 	// printf("%d-%d\n", (p.x + obj->l), (p.y + obj->c));
 	for(i=p.x; i<(p.x + obj->l); i++){
@@ -47,9 +47,10 @@ int CorrelacaoCruzada(PGM *cena, PGM *obj, Ponto p){
 Ponto JanelaDeslizante(PGM *cena, PGM *obj){
 	Ponto meuPonto, pontoMatch;
 	int i, j,
-		limiteLinha,
-		limiteColuna,
-		valorCorr = 0, valorCorrTemp = 0;
+	    limiteLinha,
+	    limiteColuna,
+	    valorCorr = 0,
+	    valorCorrTemp = 0;
 
 	limiteLinha = cena->l - obj->l;
 	limiteColuna = cena->c - obj->c;
