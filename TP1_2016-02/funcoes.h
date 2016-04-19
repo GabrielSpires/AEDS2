@@ -25,20 +25,20 @@ Saída: Estrutura contendo os dados da imagem
 −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
 PGM *LePGM(char* entrada);
 
-/*−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+/*−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 Protótipo: CorrelacaoCruzada (PGM ∗ cena , PGM ∗ obj , Ponto p)
-Função: Aplicaracorrelação...
-Entrada: Estrutura contendo...
-Saída: ...
-−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
+Função: Aplicar a correlação na área designada da matriz
+Entrada: Estruturas contendo as matrizes da cena e do objeto e o ponto inicial
+Saída: Número inteiro correspondente ao resultado da correlação
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
 int CorrelacaoCruzada(PGM *cena, PGM *obj, Ponto p);
 
-/*−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+/*−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 Protótipo: JanelaDeslizante(PGM *cena, PGM *obj);
-Função: Desliza a janela?... ué
-Entrada: Estrutura contendo...
-Saída: ...
-−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
+Função: Desliza a matriz do objeto pela cena
+Entrada: Estruturas contendo a matriz de dados da cena e do objeto
+Saída: Ponto que corresponde ao local onde o valor da correlação foi mais expressivo
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
 Ponto JanelaDeslizante(PGM *cena, PGM *obj);
 
 #endif
