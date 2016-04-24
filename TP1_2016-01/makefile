@@ -1,7 +1,7 @@
 # -- parte obrigatória --
 
 #make
-#compila o código
+#compila o código 
 TP1: main.c funcoes.c
 	gcc -o exec main.c funcoes.c
 
