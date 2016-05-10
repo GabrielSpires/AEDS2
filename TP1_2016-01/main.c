@@ -9,9 +9,9 @@ int main(int argc, char const *argv[]){
 	lab = LeLabirinto((char*)argv[1]);
 
 	/*Aloca a matriz solução com as dimensões do labirinto*/
-	sol = (int**)malloc(lab->N * sizeof(int*));
+	sol = (int**)calloc(lab->N, sizeof(int*));
 	for(i=0; i<lab->N; i++)
-		sol[i] = (int*)malloc(lab->N * sizeof(int));
+		sol[i] = (int*)calloc(lab->N, sizeof(int));
 
 	/*Executa o algoritmo especificado na execução*/
 	if(!strcmp(argv[3], "0")){
@@ -38,10 +38,7 @@ int main(int argc, char const *argv[]){
 	}
 	
 	/*Print da entrada*/
-	printf("  "); for(i=0; i<lab->N; i++) printf("%d ", i); printf("<- Numero das colunas\n");
-	for(i=0; i<lab->N; i++){ printf("%d ", i);
-		for(j=0; j<lab->N; j++) printf("%hhu ", lab->mapa[i][j]); printf("\n");
-	}
+	printLoko(sol, lab->N);
 	/*Print da entrada*/
 	
 	/*Libera tudo*/

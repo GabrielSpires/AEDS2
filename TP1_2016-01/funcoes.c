@@ -27,53 +27,64 @@ Labirinto* LeLabirinto(const char * entrada){
 }
 
 int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
-	/*TESTE - remover essa parte*/
-	int i,j;
-	for(i=0; i<lab->N; i++){
-		for(j=0; j<lab->N; j++){
-			sol[i][j] = 0;
+	if(lab->mapa[x][y] == 0 && x == lab->sx && y == lab->sy){
+		sol[x][y] = 1;
+		return true;
+	}
+	else{
+		if(lab->mapa[x][y] == 0 & sol[x][y] == 0){
+			sol[x][y] = 1;
+			if(x < lab->N && CaminhaLabirintoRecursivo(lab, x+1, y, sol)){
+				return true;
+			}
+			if(x > 0 && CaminhaLabirintoRecursivo(lab, x-1, y, sol)){
+				return true;
+			}
+			if(y < lab->N && CaminhaLabirintoRecursivo(lab, x, y+1, sol)){
+				return true;
+			}
+			if(y > 0 && CaminhaLabirintoRecursivo(lab, x, y-1, sol)){
+				return true;
+			}
+			sol[x][y] = 0;
 		}
 	}
-	/*TESTE - remover essa parte*/
+	return false;
 }
 
 int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
-	/*TESTE - remover essa parte*/
-	int i,j;
-	for(i=0; i<lab->N; i++){
-		for(j=0; j<lab->N; j++){
-			sol[i][j] = 0;
-		}
-	}
-	/*TESTE - remover essa parte*/
 }
 
-/*
-Pseudo-código
-Caminha no labirinto recursivamente
 
-function caminhalabirinto(mapa, x, y, sx, sy, sol)
-	if x = sx && y = sy then
-		sol[x][y] ← 1
-		return True
-	else
-		if mapa[x][y] = 0 && sol[x][y] = 0 then
-		sol[x][y] ← 1
-			if caminhalabirinto(mapa, x + 1, y, sx, sy, sol)
-				return True
-			end if
-			if caminhalabirinto(mapa, x, y + 1, sx, sy, sol)
-				return True
-			end if
-			if caminhalabirinto(mapa, x − 1, y, sx, sy, sol)
-				return True
-			end if
-			if caminhalabirinto(mapa, x, y − 1, sx, sy, sol)
-				return True
-			end if
-			sol[x][y] ← 0
-		end if
-	end if
-	return True
-end function
-*/
+void printLoko(int **matriz, int n){
+	int i, j, k;
+	
+	printf("   ");
+	
+	for(i=0; i<n; i++){
+		printf(" %2d ", i);
+	}
+	printf("\n   +");
+	
+	for(k=0; k<n; k++){
+		printf("---+");
+	}
+	printf("\n");
+
+	for(i=0; i<n; i++){ 
+		printf("%2d |", i);
+		for(j=0; j<n; j++){
+			if(matriz[i][j] != 0){
+				printf("%2d |", matriz[i][j]);
+			}
+			else{
+				printf("   |");
+			}
+		}
+		printf("\n   +");
+		for(k=0; k<n; k++){
+			printf("---+");
+		}
+		printf("\n");
+	}
+}

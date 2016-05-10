@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define true 1
+#define false 0
 
 typedef struct {
 	int N; // Dimensão do labirinto, lmebre-se que o mesmo é N x N
@@ -38,5 +40,7 @@ Entrada:
 Saída: 
 −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
 int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol);
+
+void printLoko(int **matriz, int n);
 
 #endif
