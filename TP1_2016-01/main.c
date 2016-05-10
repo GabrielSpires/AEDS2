@@ -37,19 +37,19 @@ int main(int argc, char const *argv[]){
 		}
 	}
 	
-	/*Print da entrada*/
+	/*Print da saida*/
 	printLoko(sol, lab->N);
-	/*Print da entrada*/
 	
 	/*Libera tudo*/
+	for(i=0; i<lab->N; i++)
+		free(sol[i]);
+	free(sol);
+	fclose(saida);
+
 	for(i=0; i<lab->N; i++)
 		free(lab->mapa[i]);
 	free(lab->mapa);
 	free(lab);
-
-	for(i=0; i<lab->N; i++)
-		free(sol[i]);
-	free(sol);
 
 	return 0;
 }

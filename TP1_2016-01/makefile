@@ -26,14 +26,14 @@ iterativo:
 valr:
 	clear
 	gcc -g -o exec main.c funcoes.c
-	valgrind --leak-check=full --track-origins=yes ./exec input/input.txt espada.txt 0
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./exec input/input.txt espada.txt 0
 
 #make vali
 #compila e testa o programa iterativo no valgrind
 vali:
 	clear
 	gcc -g -o exec main.c funcoes.c
-	valgrind --leak-check=full --track-origins=yes ./exec input/input.txt espada.txt 1
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./exec input/input.txt espada.txt 1
 
 #make clean
 #apaga os arquivos gerado pelo programa (para submeter o tp)
