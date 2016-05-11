@@ -55,22 +55,34 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 
 int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
 	Pilha minhaPilha;
+	Ponto meuPonto;
+
 	criaPilha(&minhaPilha);
 
 	if(pilhaVazia(&minhaPilha)) printf("A pilha está vazia!\n");
 	
-	empilha(3, &minhaPilha);
-	empilha(5, &minhaPilha);
-	empilha(7, &minhaPilha);
-	empilha(11, &minhaPilha);
-	empilha(13, &minhaPilha);
+	meuPonto.x = 0;
+	meuPonto.y = 1;
+	empilha(meuPonto, &minhaPilha);
+	meuPonto.x = 0;
+	meuPonto.y = 2;
+	empilha(meuPonto, &minhaPilha);
+	meuPonto.x = 0;
+	meuPonto.y = 3;
+	empilha(meuPonto, &minhaPilha);
+	meuPonto.x = 1;
+	meuPonto.y = 3;
+	empilha(meuPonto, &minhaPilha);
+	meuPonto.x = 2;
+	meuPonto.y = 3;
+	empilha(meuPonto, &minhaPilha);
 
 	desempilha(&minhaPilha);
 
 	imprimePilha(&minhaPilha);
 
 	printf("A pilha tem agora %d elementos\n", pilhaTam(&minhaPilha));
-	printf("O elemento %d esta no topo da pilha\n", pilhaTopo(&minhaPilha));
+	printf("O elemento (%d,%d) esta no topo da pilha\n", pilhaTopo(&minhaPilha).x, pilhaTopo(&minhaPilha).y);
 
 	liberaPilha(&minhaPilha);
 

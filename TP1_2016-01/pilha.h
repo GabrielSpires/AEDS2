@@ -2,11 +2,14 @@
 #define PILHA_H_
 
 // Tipo dos elementos na pilha.
-typedef int SType;
+typedef struct{
+	int x;
+	int y;
+} Ponto;
 
 // Define como os elementos da pilha serão organizados na memória.
 typedef struct node{
-	SType chave;
+	Ponto chave;
 	struct node* prev;
 	struct node* next;
 } Node;
@@ -28,10 +31,10 @@ int pilhaTam(Pilha* s);
 
 // Retorna o elemento que está no topo da pilha em O(1).
 // Precondição: a pilha não pode estar vazia.
-SType pilhaTopo(Pilha* s);
+Ponto pilhaTopo(Pilha* s);
 
 // Insere k no topo da pilha em O(1).
-void empilha(SType k, Pilha* s);
+void empilha(Ponto k, Pilha* s);
 
 // Remove o elemento que está no topo da pilha em O(1).
 // Precondição: a pilha não pode estar vazia.
