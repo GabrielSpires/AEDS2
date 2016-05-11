@@ -1,4 +1,5 @@
 #include "funcoes.h"
+#include "pilha.h"
 
 Labirinto* LeLabirinto(const char * entrada){
 	int i, j;
@@ -53,12 +54,34 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 }
 
 int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
+	Pilha minhaPilha;
+	criaPilha(&minhaPilha);
+
+	if(pilhaVazia(&minhaPilha)) printf("A pilha está vazia!\n");
+	
+	empilha(3, &minhaPilha);
+	empilha(5, &minhaPilha);
+	empilha(7, &minhaPilha);
+	empilha(11, &minhaPilha);
+	empilha(13, &minhaPilha);
+
+	desempilha(&minhaPilha);
+
+	imprimePilha(&minhaPilha);
+
+	printf("A pilha tem agora %d elementos\n", pilhaTam(&minhaPilha));
+	printf("O elemento %d esta no topo da pilha\n", pilhaTopo(&minhaPilha));
+
+	liberaPilha(&minhaPilha);
+
+	return 0;
 }
 
 
 void printLoko(int **matriz, int n){
 	int i, j, k;
 	
+	printf("\nSolução:\n");
 	printf("   ");
 	
 	for(i=0; i<n; i++){
