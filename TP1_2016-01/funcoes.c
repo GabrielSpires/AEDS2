@@ -35,10 +35,10 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 	else{
 		if(lab->mapa[x][y] == 0 & sol[x][y] == 0){
 			sol[x][y] = 1;
-			if(x < lab->N && CaminhaLabirintoRecursivo(lab, x+1, y, sol)){
+			if(x < lab->N-1 && CaminhaLabirintoRecursivo(lab, x+1, y, sol)){
 				return true;
 			}
-			if(y < lab->N && CaminhaLabirintoRecursivo(lab, x, y+1, sol)){
+			if(y < lab->N-1 && CaminhaLabirintoRecursivo(lab, x, y+1, sol)){
 				return true;
 			}
 			if(x > 0 && CaminhaLabirintoRecursivo(lab, x-1, y, sol)){
@@ -55,55 +55,52 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 
 int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
 	Pilha minhaPilha;
+	int espadaEncontrada = false;
 	// int i;
 
 	criaPilha(&minhaPilha);
 	empilha(x, y, &minhaPilha);
-	printf("%d %d\n", pTopo(&minhaPilha).x, pTopo(&minhaPilha).y);
 
 	while(!pVazia(&minhaPilha)){
 		x = pTopo(&minhaPilha).x;
 		y = pTopo(&minhaPilha).y;
-		desempilha(&minhaPilha);
+		// desempilha(&minhaPilha);
 
-		if(!lab->mapa[x][y] && x == lab->sx && y == lab->sy){
+		if(x == lab->sx && y == lab->sy){
+			espadaEncontrada = true;
 			sol[x][y] = 1;
-			lab->mapa[x][y] = 1;
 			desempilha(&minhaPilha);
 		}
-		else{
-			if(lab->mapa[x][y] == 0 & sol[x][y] == 0){
+		else if(!espadaEncontrada){
 				sol[x][y] = 1;
-
 				if(x < lab->N-1 && !lab->mapa[x+1][y]){
-					if(!sol[x+1][y]) empilha(x+1, y, &minhaPilha);
+					empilha(x+1, y, &minhaPilha);
+					lab->mapa[x+1][y] = 1;
 					continue;
 				}
 				if(y < lab->N-1 && !lab->mapa[x][y+1]){
-					if(!sol[x][y+1]) empilha(x, y+1, &minhaPilha);
+					empilha(x, y+1, &minhaPilha);
+					lab->mapa[x][y+1] = 1;
 					continue;
 				}
 				if(x > 0 && !lab->mapa[x-1][y]){
-					sol[x][y] = 0;
-					lab->mapa[x][y] = 1;
-					if(!sol[x-1][y]) empilha(x-1, y, &minhaPilha);
+					empilha(x-1, y, &minhaPilha);
+					lab->mapa[x-1][y] = 1;
 					continue;
 				}
 				if(y > 0 && !lab->mapa[x][y-1]){
-					sol[x][y] = 0;
-					lab->mapa[x][y] = 1;
-					if(!sol[x][y-1]) empilha(x, y-1, &minhaPilha);
+					empilha(x, y-1, &minhaPilha);
+					lab->mapa[x][y-1] = 1;
 					continue;
 				}
 				sol[x][y] = 0;
-			}
 		}
 		desempilha(&minhaPilha);
 	}
 
 	liberaPilha(&minhaPilha);
 
-	return 0;
+	return espadaEncontrada;
 }
 
 
