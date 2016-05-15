@@ -8,24 +8,25 @@ void criaPilha(Pilha* s){
     s->end->prev = s->end;
 }
 
-int pilhaVazia(Pilha* s){
+int pVazia(Pilha* s){
     return s->size == 0;
 }
 
-int pilhaTam(Pilha* s){
+int pTam(Pilha* s){
     return s->size;
 }
 
-Ponto pilhaTopo(Pilha* s){
+Ponto pTopo(Pilha* s){
     return s->end->next->chave;
 }
 
-void empilha(Ponto k, Pilha* s){
+void empilha(int x, int y, Pilha* s){
     // Ponteiro para o primeiro elemento na pilha.
     Node* first = s->end->next;
     // Cria um novo nó e define o valor dos seus campos.
     Node* node = (Node*)malloc(sizeof(Node));
-    node->chave = k;
+    node->chave.x = x;
+    node->chave.y = y;
     node->prev = first->prev;
     node->next = first;
     // Ajusta o valor dos ponteiros dos nós adjacentes ao novo nó.
@@ -51,7 +52,7 @@ void imprimePilha(Pilha* s){
 }
 
 void liberaPilha(Pilha* s){
-    while (!pilhaVazia(s)){
+    while (!pVazia(s)){
         desempilha(s);  // A função desempilha() libera a memórima de cada nó removido da pilha.
     }
     free(s->end);

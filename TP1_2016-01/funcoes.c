@@ -38,10 +38,10 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 			if(x < lab->N && CaminhaLabirintoRecursivo(lab, x+1, y, sol)){
 				return true;
 			}
-			if(x > 0 && CaminhaLabirintoRecursivo(lab, x-1, y, sol)){
+			if(y < lab->N && CaminhaLabirintoRecursivo(lab, x, y+1, sol)){
 				return true;
 			}
-			if(y < lab->N && CaminhaLabirintoRecursivo(lab, x, y+1, sol)){
+			if(x > 0 && CaminhaLabirintoRecursivo(lab, x-1, y, sol)){
 				return true;
 			}
 			if(y > 0 && CaminhaLabirintoRecursivo(lab, x, y-1, sol)){
@@ -55,34 +55,51 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 
 int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
 	Pilha minhaPilha;
-	Ponto meuPonto;
+	// int i;
 
 	criaPilha(&minhaPilha);
+	empilha(x, y, &minhaPilha);
+	printf("%d %d\n", pTopo(&minhaPilha).x, pTopo(&minhaPilha).y);
 
-	if(pilhaVazia(&minhaPilha)) printf("A pilha está vazia!\n");
-	
-	meuPonto.x = 0;
-	meuPonto.y = 1;
-	empilha(meuPonto, &minhaPilha);
-	meuPonto.x = 0;
-	meuPonto.y = 2;
-	empilha(meuPonto, &minhaPilha);
-	meuPonto.x = 0;
-	meuPonto.y = 3;
-	empilha(meuPonto, &minhaPilha);
-	meuPonto.x = 1;
-	meuPonto.y = 3;
-	empilha(meuPonto, &minhaPilha);
-	meuPonto.x = 2;
-	meuPonto.y = 3;
-	empilha(meuPonto, &minhaPilha);
+	while(!pVazia(&minhaPilha)){
+		x = pTopo(&minhaPilha).x;
+		y = pTopo(&minhaPilha).y;
+		desempilha(&minhaPilha);
 
-	desempilha(&minhaPilha);
+		if(!lab->mapa[x][y] && x == lab->sx && y == lab->sy){
+			sol[x][y] = 1;
+			lab->mapa[x][y] = 1;
+			desempilha(&minhaPilha);
+		}
+		else{
+			if(lab->mapa[x][y] == 0 & sol[x][y] == 0){
+				sol[x][y] = 1;
 
-	imprimePilha(&minhaPilha);
-
-	printf("A pilha tem agora %d elementos\n", pilhaTam(&minhaPilha));
-	printf("O elemento (%d,%d) esta no topo da pilha\n", pilhaTopo(&minhaPilha).x, pilhaTopo(&minhaPilha).y);
+				if(x < lab->N-1 && !lab->mapa[x+1][y]){
+					if(!sol[x+1][y]) empilha(x+1, y, &minhaPilha);
+					continue;
+				}
+				if(y < lab->N-1 && !lab->mapa[x][y+1]){
+					if(!sol[x][y+1]) empilha(x, y+1, &minhaPilha);
+					continue;
+				}
+				if(x > 0 && !lab->mapa[x-1][y]){
+					sol[x][y] = 0;
+					lab->mapa[x][y] = 1;
+					if(!sol[x-1][y]) empilha(x-1, y, &minhaPilha);
+					continue;
+				}
+				if(y > 0 && !lab->mapa[x][y-1]){
+					sol[x][y] = 0;
+					lab->mapa[x][y] = 1;
+					if(!sol[x][y-1]) empilha(x, y-1, &minhaPilha);
+					continue;
+				}
+				sol[x][y] = 0;
+			}
+		}
+		desempilha(&minhaPilha);
+	}
 
 	liberaPilha(&minhaPilha);
 

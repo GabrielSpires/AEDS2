@@ -24,17 +24,17 @@ typedef struct{
 void criaPilha(Pilha* s);
 
 // Testa se a pilha está vazia em O(1).
-int pilhaVazia(Pilha* s);
+int pVazia(Pilha* s);
 
 // Retorna o número de elementos na pilha em O(1).
-int pilhaTam(Pilha* s);
+int pTam(Pilha* s);
 
 // Retorna o elemento que está no topo da pilha em O(1).
 // Precondição: a pilha não pode estar vazia.
-Ponto pilhaTopo(Pilha* s);
+Ponto pTopo(Pilha* s);
 
 // Insere k no topo da pilha em O(1).
-void empilha(Ponto k, Pilha* s);
+void empilha(int x, int y, Pilha* s);
 
 // Remove o elemento que está no topo da pilha em O(1).
 // Precondição: a pilha não pode estar vazia.
