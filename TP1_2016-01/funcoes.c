@@ -10,7 +10,7 @@
 #include "funcoes.h"
 #include "pilha.h"
 
-Labirinto* LeLabirinto(const char * entrada){
+Labirinto* LeLabirinto(const char *entrada){
 	int i, j;
 	FILE *input;
 	Labirinto *lab;
@@ -44,16 +44,16 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 	else{
 		if(lab->mapa[x][y] == 0 & sol[x][y] == 0){
 			sol[x][y] = 1;
-			if(x < lab->N-1 && CaminhaLabirintoRecursivo(lab, x+1, y, sol)){
-				return true;
-			}
 			if(y < lab->N-1 && CaminhaLabirintoRecursivo(lab, x, y+1, sol)){
 				return true;
 			}
-			if(x > 0 && CaminhaLabirintoRecursivo(lab, x-1, y, sol)){
+			if(x < lab->N-1 && CaminhaLabirintoRecursivo(lab, x+1, y, sol)){
 				return true;
 			}
 			if(y > 0 && CaminhaLabirintoRecursivo(lab, x, y-1, sol)){
+				return true;
+			}
+			if(x > 0 && CaminhaLabirintoRecursivo(lab, x-1, y, sol)){
 				return true;
 			}
 			sol[x][y] = 0;
@@ -80,19 +80,14 @@ int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
 		}
 		else if(!espadaEncontrada){
 				sol[x][y] = 1;
-				if(x < lab->N-1 && !lab->mapa[x+1][y]){
-					empilha(x+1, y, &minhaPilha);
-					lab->mapa[x+1][y] = 1;
-					continue;
-				}
 				if(y < lab->N-1 && !lab->mapa[x][y+1]){
 					empilha(x, y+1, &minhaPilha);
 					lab->mapa[x][y+1] = 1;
 					continue;
 				}
-				if(x > 0 && !lab->mapa[x-1][y]){
-					empilha(x-1, y, &minhaPilha);
-					lab->mapa[x-1][y] = 1;
+				if(x < lab->N-1 && !lab->mapa[x+1][y]){
+					empilha(x+1, y, &minhaPilha);
+					lab->mapa[x+1][y] = 1;
 					continue;
 				}
 				if(y > 0 && !lab->mapa[x][y-1]){
@@ -100,7 +95,12 @@ int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
 					lab->mapa[x][y-1] = 1;
 					continue;
 				}
-				sol[x][y] = 0;
+				if(x > 0 && !lab->mapa[x-1][y]){
+					empilha(x-1, y, &minhaPilha);
+					lab->mapa[x-1][y] = 1;
+					continue;
+				}
+				if(x != lab->x || y != lab->y) sol[x][y] = 0;
 		}
 		desempilha(&minhaPilha);
 	}
