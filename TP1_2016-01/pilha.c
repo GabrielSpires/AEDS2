@@ -1,3 +1,5 @@
+/*TAD PODE COPIAR :]*/
+
 #include "pilha.h"
 #include "funcoes.h"
 

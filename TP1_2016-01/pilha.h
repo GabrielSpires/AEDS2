@@ -1,3 +1,5 @@
+/*TAD PODE COPIAR :]*/
+
 #ifndef PILHA_H_
 #define PILHA_H_
 

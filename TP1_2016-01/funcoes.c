@@ -1,3 +1,11 @@
+/*ATENÇÃO*/
+/*NÃO RECOMENDO COPIAR ESTE CÓDIGO, USE-O APENAS COMO REFERÊNCIA*/
+/*ALGUÉM PODE JÁ TER COPIADO ESSE CÓDIGO E O RISCO DE PLÁGIO É GRANDE*/
+/*A CONVERSÃO PARA O ALGORITMO ITERATIVO PODE SER ESTUDADO NO LINK ABAIXO*/
+/*https://secweb.cs.odu.edu/~zeil/cs361/web/website/Lectures/recursionConversion/page/recursionConversion.html#d0e320*/
+/*COMA BASTANTE BATATA E FAÇA EXERCÍCIOS FÍSICOS REGULARMENTE*/
+/*QUE A DELÍCIA ESTEJA COM VOCÊ!*/
+
 #include "funcoes.h"
 #include "pilha.h"
 
