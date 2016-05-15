@@ -3,7 +3,7 @@
 #make
 #compila o código 
 TP1: main.c funcoes.c pilha.c
-	gcc -o exec main.c funcoes.c
+	gcc -o exec main.c funcoes.c pilha.c
 
 # -- parte opcional --
 
