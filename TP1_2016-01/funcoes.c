@@ -56,7 +56,6 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
 	Pilha minhaPilha;
 	int espadaEncontrada = false;
-	// int i;
 
 	criaPilha(&minhaPilha);
 	empilha(x, y, &minhaPilha);
@@ -64,7 +63,6 @@ int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
 	while(!pVazia(&minhaPilha)){
 		x = pTopo(&minhaPilha).x;
 		y = pTopo(&minhaPilha).y;
-		// desempilha(&minhaPilha);
 
 		if(x == lab->sx && y == lab->sy){
 			espadaEncontrada = true;
