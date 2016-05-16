@@ -1,3 +1,8 @@
+/*
+	Execute o código com o comando 'make recursivo' ou 'make iterativo'
+	Leia o makefile
+*/
+
 #include "funcoes.h"
 
 int main(int argc, char const *argv[]){
@@ -53,9 +58,3 @@ int main(int argc, char const *argv[]){
 
 	return 0;
 }
-
-/*
-	Implementar uma pilha pra guardar o caminho do labirinto na função iterativa
-	Execute o código com o comando 'make recursivo' ou 'make iterativo'
-	Leia o makefile
-*/
