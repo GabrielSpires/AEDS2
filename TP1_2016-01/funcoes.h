@@ -31,7 +31,7 @@ Função:
 Entrada: 
 Saída: 
 −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−*/
-int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol);
+int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int** sol);
 
 /*−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 Protótipo: CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol);

@@ -1,3 +1,4 @@
+/*MAMÃE, NO LABIRINTO TEM PÃO? E EMPILHOU*/
 /*A CONVERSÃO PARA O ALGORITMO ITERATIVO PODE SER ESTUDADA NO LINK ABAIXO*/
 /*https://secweb.cs.odu.edu/~zeil/cs361/web/website/Lectures/recursionConversion/page/recursionConversion.html#d0e320*/
 /*COMA BASTANTE BATATA E FAÇA EXERCÍCIOS FÍSICOS REGULARMENTE (COMER BATATA TAMBÉM É UM BOM EXERCÍCIO)*/
@@ -59,7 +60,10 @@ int CaminhaLabirintoRecursivo(Labirinto* lab, int x, int y, int ** sol){
 	return false;
 }
 
-int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int ** sol){
+/*
+int gustavoMeEngravida(int gostosão, double rainbow){}*/
+
+int CaminhaLabirintoIterativo(Labirinto* lab, int x, int y, int** sol){
 	Pilha minhaPilha;
 	int espadaEncontrada = false;
 
