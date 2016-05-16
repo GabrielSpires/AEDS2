@@ -1,5 +1,3 @@
-/*TAD PODE COPIAR :]*/
-
 #include "pilha.h"
 #include "funcoes.h"
 
@@ -47,7 +45,6 @@ void desempilha(Pilha* s){
 
 void imprimePilha(Pilha* s){
     Node* nodoIterador;
-
     for(nodoIterador=s->end->next; nodoIterador != s->end; nodoIterador = nodoIterador->next){
         printf("(%d,%d)\n", nodoIterador->chave.x, nodoIterador->chave.y);
     }

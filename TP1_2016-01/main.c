@@ -42,7 +42,7 @@ int main(int argc, char const *argv[]){
 		}
 	}
 	
-	/*Print da saida*/
+	/*Print da saida somente para fins didáticos*/
 	printLoko(sol, lab->N);
 	
 	/*Libera tudo*/
