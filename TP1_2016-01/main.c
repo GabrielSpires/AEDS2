@@ -43,7 +43,7 @@ int main(int argc, char const *argv[]){
 	}
 	
 	/*Print da saida somente para fins didáticos*/
-	printLoko(sol, lab->N);
+	// printLoko(sol, lab->N);
 	
 	/*Libera tudo*/
 	for(i=0; i<lab->N; i++)
