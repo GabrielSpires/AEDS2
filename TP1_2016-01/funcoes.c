@@ -1,8 +1,9 @@
 /*!ATENÇÃO!*/
 /*NÃO COPIE ESTE CÓDIGO! USE-O APENAS COMO REFERÊNCIA. APRENDA E RESOLVA DO SEU JEITO (seu bostinha)*/
 /*CASO COPIE VOCÊ NÂO VAI APRENDER A RESOLVER O PROBLEMA E O GIL DA ESFIRRA VAI TE DAR UMA PORRADA*/
+/*A MINHA SOLUÇÃO NÃO É A MELHOR E CONTÉM BUGS QUE VÃO TE FUDER (caso não siga os conselhos acima)*/
 /*A CONVERSÃO PARA O ALGORITMO ITERATIVO PODE SER ESTUDADA NO LINK ABAIXO*/
-/*https://secweb.cs.odu.edu/~zeil/cs361/web/website/Lectures/recursionConversion/page/recursionConversion.html#d0e320*/
+/*https://secweb.cs.odu.edu/~zeil/cs361/web/website/Lectures/recursionConversion/page/recursionConversion.html*/
 /*COMA BASTANTE BATATA E FAÇA EXERCÍCIOS FÍSICOS REGULARMENTE (COMER BATATA TAMBÉM É UM BOM EXERCÍCIO)*/
 /*FAÇA AMOR, NÃO FAÇA AEDS*/
 /*E QUE A DELÍCIA ESTEJA COM VOCÊ!*/
