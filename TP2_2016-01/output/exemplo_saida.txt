@@ -1,0 +1,44 @@
+//Hash com 10 posições
+
+0:
+(9300) Alessandro Gomes Sifuentes
+(326080) Ewerton Ozorio da Luz
+(331630) Thiago Paiva Medeiros
+(360580) Diego Freitas Siqueira Souza
+1:
+(312211) Michael Bruno Pereira de Castilho
+(360591) Gustavo Lopez Antunes Rezende
+(369141) Rafael Silva Correia
+2:
+(355902) Tatianne Tinel Peixoto
+3:
+(277683) Joao Gabriel Nascentes Fernandes
+(345023) Raissa do Vale Azevedo
+(360573) Carlos Alberto de Oliveira
+(360583) Felipe Pena Aguiar Marques
+(360603) Matheus Fialho Anastacio
+4:
+(356044) Lucio Jose Pimenta Neto
+(360594) Igor Antenor Leal
+(360604) Nathan de Oliveira Resende
+5:
+(91085) Marcos Rodrigues Timo
+(360565) Anderson de Souza Baptista de Leo
+(360585) Filipe da Costa Matos Sousa Faria
+(368545) Tiago Leocadio da Silva
+6:
+(300576) Tarcisio de Souza Rezende
+(326086) Italo Jose Pereira Borges Oliveira
+(345016) Gustavo Henrique Penna Duarte
+(360566) Andre de Lima Guss
+(360616) Vinicius Costa e Silva
+(360676) Wilder Moreira Doti
+(364916) Thamires Buzati de Resende
+7:
+(316487) Yuri Ribeiro Almeida(360607) Rafael Rodrigues Lima
+(364897) Paula Ribeiro Rezende
+8:
+(369148) Andre Souza Espirito Santo
+9:
+(355899) Rafael Patricio de Souza
+(360589) Guilherme Caires de Miranda
