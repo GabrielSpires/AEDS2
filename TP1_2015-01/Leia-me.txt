@@ -1,0 +1,8 @@
+Para executar o programa corretamente use o seguinte comando:
+
+Windows: tp1.exe <numero da parte> <arquivo de entrada> <arquivo de saida>
+Linux: ./tp1 <numero da parte> <arquivo de entrada> <arquivo de saida>
+
+Por exemplo, para executar a parte 1 do programa e criar um arquivo de saída na mesma pasta do programa no linux basta digitar:
+
+./tp1 1 data_test/cities_4.txt saida_4.txt
