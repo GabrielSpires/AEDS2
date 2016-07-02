@@ -11,7 +11,7 @@
 # Agora basta importa-lo na documentação
 # Se o formato PDF nao funcionar mude de Grafico.pdf pra Grafico.eps (linha 15 desse arquivo)
 
-set term postscript eps enhanced
+set term postscript eps enhanced color
 set output 'Grafico.pdf'
 set title 'Titulo do grafico'
 set xlabel 'Legenda do eixo X'
