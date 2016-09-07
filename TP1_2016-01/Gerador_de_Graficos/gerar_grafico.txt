@@ -18,6 +18,7 @@ set xlabel 'Legenda do eixo X'
 set ylabel 'Legenda do eixo Y'
 set style line 1 lc rgb '#8b1a0e' pt 7 ps 1 lt 1 lw 2 # --- red
 set style line 2 lc rgb '#1E90FF' pt 7 ps 1 lt 1 lw 2 # --- blue
+set style line 3 lc rgb '#45CE30' pt 7 ps 1 lt 1 lw 2 # --- green
 set style line 11 lc rgb '#808080' lt 1
 set style line 12 lc rgb '#808080' lt 0 lw 1
 set border 3 back ls 11
@@ -26,3 +27,4 @@ set grid back ls 12
 set key bottom right
 plot "dados.txt" u 1:2 t 'Linha 1' w lp ls 1, \
 	 "dados.txt" u 1:3 t 'Linha 2' w lp ls 2, \
+	 "dados.txt" u 1:4 t 'Linha 3' w lp ls 3
